@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+    <title>rf_home</title>
+  </head>
+    <center>
+      <h1>Player Value Prediction (Football)</h1>
+    </center>
+    <div class="container">
+      <div class="row">
+        <form action="http://localhost:5000" method="POST">
+          <div class="col-sm-9">
+            <div class="form-group purple-border">
+              <label for="comment">Club:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query1"
+                name="query1"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query1}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Age:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query2"
+                name="query2"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query2}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Position:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query3"
+                name="query3"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query3}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Position_cat:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query4"
+                name="query4"
+                rows="2"
+                cols="5"
+                autofocus
+              >
+{{query4}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Page views:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query5"
+                name="query5"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query5}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">fpl Value:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query6"
+                name="query6"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query6}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">fpl sel:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query7"
+                name="query7"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query7}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">fpl Points:</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query8"
+                name="query8"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query8}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Is it a big club?</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query9"
+                name="query9"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query9}}</textarea
+              >
+            </div>
+            <div class="form-group purple-border">
+              <label for="comment">Is it a new signing?</label><br />
+              <textarea
+                class="form-control"
+                rows="2"
+                id="query10"
+                name="query10"
+                rows="2"
+                cols="10"
+                autofocus
+              >
+{{query10}}</textarea
+              >
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary" name="submit">
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="pred">
+          <label for="comment">Predicted Player Value:</label><br>
+          <textarea
+            class="form-control"
+            rows="2"
+            id="comment"
+            name="query11"
+            rows="2"
+            cols="10"
+            autofocus
+          >
+{{output}}</textarea
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map">
+        <h3>Club map:</h3>
+        0: 'Arsenal' <br>
+        1: 'Bournemouth' <br>
+        2: 'Brighton+and+Hove' <br>
+        3: 'Burnley' <br>
+        4: 'Chelsea' <br>
+        5: 'Crystal+Palace' <br>
+        6: 'Everton' <br>
+        7: 'Huddersfield' <br>
+        8: 'Leicester+City' <br>
+        9: 'Liverpool' <br>
+        10: 'Manchester+City' <br>
+        11: 'Manchester+United' <br>
+        12: 'Newcastle+United' <br>
+        13: 'Southampton' <br>
+        14: 'Stoke+City' <br>
+        15: 'Swansea' <br>
+        16: 'Tottenham' <br>
+        17: 'Watford' <br>
+        18: 'West+Brom' <br>
+        19: 'West+Ham'<br>
+
+        <h3>Position map: </h3>
+        8: 'LW' <br>
+        0: 'AM' <br>
+        5: 'GK' <br>
+        11: 'RW' <br>
+        1: 'CB' <br>
+        9: 'RB' <br>
+        2: 'CF' <br>
+        6: 'LB' <br>
+        4: 'DM' <br>
+        10: 'RM' <br>
+        3: 'CM' <br>
+        12: 'SS' <br>
+        7: 'LM'
+    </div>
+  </body>
+</html>
